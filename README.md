@@ -1,59 +1,73 @@
-# Nuxt 3 Minimal Starter
+# nuxt-feature-toggle
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Setup
+## 使い方
 
-Make sure to install the dependencies:
+### 設定
+
+```ts
+export default defineNuxtConfig({
+    runtimeConfig: {
+        public: {
+            features: ["featureName"]
+        }
+    }
+});
+```
+
+### 実装
+
+新しい機能を追加する場合
+
+```vue
+
+<template>
+  <feature-toggle feature="featureName">
+    <div>
+      new feature
+    </div>
+  </feature-toggle>
+</template>
+```
+
+機能を修正する場合
+
+```vue
+
+<template>
+  <feature-toggle feature="featureName">
+    <template #default>new feature</template>
+    <template #fallback>old feature</template>
+  </feature-toggle>
+</template>
+```
+
+## 実行方法
+
+### セットアップ
+
+依存するライブラリをインストールする。
 
 ```bash
 # npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## 開発サーバーで起動する
 
-Start the development server on `http://localhost:3000`:
+`http://localhost:3000` でサーバーを起動する。
 
 ```bash
 # npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+## 本番用にアプリをビルドする
 
 ```bash
 # npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
@@ -61,15 +75,6 @@ Locally preview production build:
 ```bash
 # npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
