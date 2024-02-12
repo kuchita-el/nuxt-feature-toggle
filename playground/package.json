@@ -1,0 +1,13 @@
+{
+  "name": "feature-module-playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "latest"
+  }
+}
